@@ -1,21 +1,28 @@
+/* style.css - S4SIT SOLUTION LLC Website Design */
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
 }
 
 header {
-  background-color: #1d3557;
+  background: #0a2647;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
 nav {
-  background-color: #457b9d;
-  padding: 10px;
+  background: #144272;
   text-align: center;
+  padding: 10px 0;
 }
 
 nav a {
@@ -30,15 +37,67 @@ nav a:hover {
 }
 
 main {
-  padding: 20px;
+  padding: 30px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+section h2 {
+  color: #0a2647;
+  margin-bottom: 15px;
 }
 
 footer {
-  background-color: #1d3557;
+  background: #0a2647;
   color: white;
   text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+button, .btn {
+  background: #205295;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background: #144272;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  transition: transform 0.2s;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.contact-form input, .contact-form textarea {
   width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+  background: #205295;
+  color: white;
+  font-weight: bold;
 }
