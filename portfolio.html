@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - S4SIT SOLUTION LLC</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — S4SIT SOLUTION LLC</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>S4SIT SOLUTION LLC</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html" class="active">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html"><img src="assets/images/logo.png" class="logo" alt="S4SIT"/><span class="title">S4SIT SOLUTION LLC</span></a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="page-content">
-    <h2>Our Portfolio</h2>
-    <p>Here are some of our past works and trusted clients:</p>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">Project 1</div>
-      <div class="portfolio-item">Project 2</div>
-      <div class="portfolio-item">Project 3</div>
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Selected Work</h2>
+      <p class="lead reveal delay-1">Replace the placeholder images with your own before/after or project shots.</p>
+
+      <div class="portfolio-grid">
+        <!-- EDIT: replace images in assets/images/portfolio/*.jpg -->
+        <div class="portfolio-item reveal">
+          <img src="assets/images/portfolio/p1.jpg" alt="Project 1"/>
+          <div class="meta"><strong>Product Retouch</strong><br/><small>High-volume e-commerce cleanup</small></div>
+        </div>
+        <div class="portfolio-item reveal delay-1">
+          <img src="assets/images/portfolio/p2.jpg" alt="Project 2"/>
+          <div class="meta"><strong>Ghost Mannequin</strong><br/><small>Apparel presentation</small></div>
+        </div>
+        <div class="portfolio-item reveal delay-2">
+          <img src="assets/images/portfolio/p3.jpg" alt="Project 3"/>
+          <div class="meta"><strong>Color Correction</strong><br/><small>Consistent brand palette</small></div>
+        </div>
+        <div class="portfolio-item reveal">
+          <img src="assets/images/portfolio/p4.jpg" alt="Project 4"/>
+          <div class="meta"><strong>Video Edit</strong><br/><small>Social ad cuts</small></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 S4SIT SOLUTION LLC</p>
+  <footer class="footer">
+    <div class="container cols">
+      <div><strong>Contact</strong><ul class="info-list"><li>US: +1 720-819-7366</li><li>BD: +880 1842-868803</li><li>Email: <a href="mailto:support@s4sit.com">support@s4sit.com</a></li></ul></div>
+      <div><strong>Hire Us</strong><ul class="info-list"><li><a href="contact.html">Start a project →</a></li></ul></div>
+    </div>
   </footer>
+
+  <a class="whatsapp" href="https://wa.me/17208197366" target="_blank">WhatsApp</a>
 </body>
 </html>
