@@ -1,40 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - S4SIT SOLUTION LLC</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — S4SIT SOLUTION LLC</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>S4SIT SOLUTION LLC</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html"><img src="assets/images/logo.png" class="logo" alt="S4SIT"/><span class="title">S4SIT SOLUTION LLC</span></a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="page-content">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mnqekvvd" method="POST">
-      <label>Your Name</label>
-      <input type="text" name="name" required>
-      <label>Your Email</label>
-      <input type="email" name="email" required>
-      <label>Your Message</label>
-      <textarea name="message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Start a Project</h2>
+      <p class="lead reveal delay-1">Tell us what you need—turnaround time, style guides, sample files, or references.</p>
+
+      <!-- Netlify form -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="card reveal" style="max-width:560px;">
+        <input type="hidden" name="form-name" value="contact"/>
+        <p style="display:none;">
+          <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
+        </p>
+        <p><input type="text" name="name" placeholder="Your Name" required></p>
+        <p><input type="email" name="email" placeholder="Your Email" required></p>
+        <p><textarea name="message" placeholder="Project details…" rows="5" required></textarea></p>
+        <p><button class="btn btn-primary" type="submit">Send Message</button></p>
+      </form>
+
+      <div class="grid" style="margin-top:18px;">
+        <div class="card reveal"><h3>USA</h3><p>1618 Weatherby Ln, Pueblo, CO 81008</p><p>+1 720-819-7366</p></div>
+        <div class="card reveal delay-1"><h3>Bangladesh</h3><p>House 183, Road 3, Ave 3, 2nd Fl,<br/>Mirpur DOHS, Dhaka-1216</p><p>+880 1842-868803</p></div>
+        <div class="card reveal delay-2"><h3>Email</h3><p><a href="mailto:support@s4sit.com">support@s4sit.com</a></p></div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 S4SIT SOLUTION LLC</p>
+  <footer class="footer">
+    <div class="container cols">
+      <div><strong>Payments</strong><ul class="info-list"><li>Bank Wire, PayPal, Wise, Payoneer, Stripe</li></ul></div>
+      <div><strong>Quick Links</strong><ul class="info-list"><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+    </div>
   </footer>
+
+  <a class="whatsapp" href="https://wa.me/17208197366" target="_blank">WhatsApp</a>
+
+  <!-- (Optional) Tawk.to Live Chat — replace YOUR_TAWKTO_ID and then uncomment
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;s1.src='https://embed.tawk.to/YOUR_TAWKTO_ID/1xxxxxxx';
+    s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  -->
 </body>
 </html>
