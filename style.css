@@ -122,3 +122,75 @@ body{
 @media (prefers-reduced-motion: reduce){
   .btn, .card, .portfolio-item, .reveal{ transition:none !important; animation:none !important; }
 }
+/* ===== Responsive Design ===== */
+
+/* Navigation menu mobile-friendly */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav li {
+  margin: 5px 10px;
+}
+
+/* Hero section responsive */
+.hero {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Portfolio grid responsive */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 0 15px;
+}
+
+/* Contact form responsive */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Footer text small screens */
+footer {
+  font-size: 0.8rem;
+  padding: 15px 5px;
+}
+
+/* Mobile menu adjust (max 768px screen) */
+@media (max-width: 768px) {
+  header img.logo {
+    width: 120px;
+  }
+
+  nav {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  section p, section ul {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
