@@ -175,7 +175,7 @@ footer {
 
 /* Mobile menu adjust (max 768px screen) */
 @media (max-width: 768px) {
-  header img.logo {
+  header logo.png {
     width: 120px;
   }
 
