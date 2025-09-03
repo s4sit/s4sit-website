@@ -30,7 +30,7 @@ body{
 }
 .navbar{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
 .brand{ display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none; }
-.brand img.logo{ height:40px; width:auto; }
+.brand logo.png{ height:40px; width:auto; }
 .brand .title{ font-weight:700; letter-spacing:.3px; }
 
 .navlinks{ display:flex; align-items:center; gap:18px; }
