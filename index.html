@@ -550,18 +550,24 @@
           </div>
         </div>
       </div>
-      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+      <form class="contact-form" id="contactForm"
+            name="contact" method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onsubmit="submitForm(event)">
+        <input type="hidden" name="form-name" value="contact"/>
+        <p style="display:none"><input name="bot-field"/></p>
         <div class="form-group">
           <label>Your Name / Agency</label>
-          <input type="text" placeholder="Your name or agency name" required/>
+          <input type="text" name="name" placeholder="Your name or agency name" required/>
         </div>
         <div class="form-group">
           <label>Email or WhatsApp</label>
-          <input type="text" placeholder="email@agency.com or +880..." required/>
+          <input type="text" name="contact" placeholder="email@agency.com or +880..." required/>
         </div>
         <div class="form-group">
           <label>Service Needed</label>
-          <select required>
+          <select name="service" required>
             <option value="">Select service...</option>
             <option>Ad Campaign Management</option>
             <option>Marketing Strategy</option>
@@ -575,7 +581,7 @@
         </div>
         <div class="form-group">
           <label>Platform(s)</label>
-          <select>
+          <select name="platform">
             <option value="">Select platform...</option>
             <option>Facebook & Instagram</option>
             <option>TikTok</option>
@@ -587,11 +593,11 @@
         </div>
         <div class="form-group">
           <label>Budget (USD / Month)</label>
-          <input type="text" placeholder="e.g. $500, $2000..."/>
+          <input type="text" name="budget" placeholder="e.g. $500, $2000..."/>
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea rows="3" placeholder="Tell us about your client's business and goals..."></textarea>
+          <textarea name="message" rows="3" placeholder="Tell us about your client's business and goals..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-full">Send Request →</button>
         <p class="form-note">We respond within minutes via WhatsApp/Email.</p>
