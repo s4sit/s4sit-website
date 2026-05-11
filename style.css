@@ -659,6 +659,14 @@ body {
 .trust-badge-card strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 2px; }
 .trust-badge-card span { color: var(--muted); font-size: 0.8rem; }
 
+/* ===== TRUST REGION ===== */
+.trust-region-label {
+  font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--muted);
+  border-left: 3px solid var(--accent2); padding-left: 12px;
+  margin-bottom: 16px;
+}
+
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
