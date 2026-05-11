@@ -604,6 +604,61 @@ body {
 
 #chatSend:hover { opacity: 0.85; }
 
+/* ===== SERVICE GROUP LABEL ===== */
+.service-group-label {
+  font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--muted);
+  border-left: 3px solid var(--accent); padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+/* ===== NAV SOCIAL ICON ===== */
+.nav-social {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 8px;
+  color: #1877F2 !important; background: rgba(24,119,242,0.12) !important;
+  padding: 0 !important; transition: background 0.2s !important;
+}
+.nav-social:hover { background: rgba(24,119,242,0.25) !important; }
+
+/* ===== FOOTER SOCIALS ===== */
+.footer-socials {
+  display: flex; gap: 10px; margin-top: 16px;
+}
+.footer-socials a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--muted); transition: all 0.2s; text-decoration: none;
+}
+.footer-socials a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== TRUST BADGES ===== */
+.trust-section { background: var(--bg2); }
+
+.trust-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; margin-top: 40px;
+}
+
+.trust-badge-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px 20px;
+  text-decoration: none; transition: all 0.2s;
+}
+.trust-badge-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.tb-icon {
+  font-size: 1.8rem; font-weight: 900; flex-shrink: 0;
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  background: var(--bg3); border-radius: 10px;
+}
+
+.trust-badge-card strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 2px; }
+.trust-badge-card span { color: var(--muted); font-size: 0.8rem; }
+
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }

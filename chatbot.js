@@ -2,7 +2,31 @@
 const FAQ = [
   {
     keys: ['what', 'service', 'do', 'offer', 'provide', 's4sit'],
-    answer: "S4SIT SOLUTION LLC funds ad accounts for digital marketing agencies worldwide. We load your Meta, Google, YouTube, WhatsApp, and LinkedIn ad accounts with USD — fast, secure, and hassle-free. 💳"
+    answer: "S4SIT SOLUTION LLC is a full-service digital marketing agency. We: ✅ Set up & manage ad accounts ✅ Build marketing strategies per product/service ✅ Run Facebook, Instagram, TikTok, Google & YouTube ads ✅ Generate sales for your clients ✅ Automate delivery processes ✅ Fund ad accounts globally (currency support) 🌍"
+  },
+  {
+    keys: ['strategy', 'marketing strategy', 'plan', 'planning'],
+    answer: "Yes! For each client (or each product/service), we build a custom marketing strategy:\n• Target audience research\n• Competitor analysis\n• Funnel structure\n• Ad format & messaging framework\n• Budget allocation\n• KPI targets\nOne tailored strategy per product — not templates! 🎯"
+  },
+  {
+    keys: ['setup', 'account setup', 'ad account setup', 'business manager', 'pixel'],
+    answer: "We handle full ad account setup: ✅ Business Manager creation ✅ Pixel/conversion API installation ✅ Audience & catalog setup ✅ Account health & compliance check. Done right from day one so your campaigns perform from the start. 🛠️"
+  },
+  {
+    keys: ['sales', 'generate', 'leads', 'conversion', 'result'],
+    answer: "Sales generation is our core service! We build full-funnel campaigns designed to drive real conversions — not just clicks. Every campaign includes tracking, optimization, and clear sales/lead reporting for your clients. 💰"
+  },
+  {
+    keys: ['automation', 'automate', 'delivery', 'crm', 'workflow', 'follow up'],
+    answer: "We set up delivery automation including: 🤖 Lead follow-up sequences, WhatsApp auto-responses, CRM integrations, reporting dashboards, and notification systems — so you deliver results consistently without manual work per client."
+  },
+  {
+    keys: ['tiktok'],
+    answer: "Yes! We manage TikTok Ads — creative strategy, spark ads, conversion campaigns, and trend-based targeting. TikTok is one of the fastest-growing ad platforms right now. 🎵"
+  },
+  {
+    keys: ['threads', 'thread'],
+    answer: "Yes — we handle Threads marketing and cross-platform social strategy to build brand presence and warm audiences for paid campaigns. 🧵"
   },
   {
     keys: ['platform', 'support', 'meta', 'facebook', 'instagram', 'google', 'youtube', 'whatsapp', 'linkedin', 'tiktok', 'email'],
@@ -34,11 +58,11 @@ const FAQ = [
   },
   {
     keys: ['start', 'begin', 'how to', 'get started', 'contact', 'reach', 'first step'],
-    answer: "Easy! 3 steps:\n1️⃣ Message us on WhatsApp: +1 720-819-7366\n2️⃣ Tell us: platform, amount, payment method\n3️⃣ We load your ad account same day!\nOr email: support@s4sit.com"
+    answer: "Easy! Message us on WhatsApp: +880 1842-868803 or email support@s4sit.com. Tell us your client's business, goal, platform, and budget — we respond within minutes and send a proposal within 24 hours. 🚀"
   },
   {
-    keys: ['whatsapp', 'phone', 'number', 'call', 'contact'],
-    answer: "📱 WhatsApp (fastest): +1 720-819-7366\n📧 Email: support@s4sit.com\n🕒 We reply within minutes — 24/7 support!"
+    keys: ['whatsapp', 'phone', 'number', 'call', 'contact', 'facebook'],
+    answer: "📱 WhatsApp (fastest): +880 1842-868803\n📧 Email: support@s4sit.com\n📘 Facebook: facebook.com/profile.php?id=61589403123161\n🕒 24/7 — we reply within minutes!"
   },
   {
     keys: ['refund', 'return', 'cancel', 'back', 'fail'],
