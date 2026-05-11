@@ -1,6 +1,14 @@
 [build]
   publish = "."
 
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  [plugins.inputs]
+    buildDir = "."
+    exclude = ["**/404.html", "**/404"]
+    prettyURLs = false
+    trailingSlash = false
+
 [[redirects]]
   from = "/404"
   to = "/404.html"
