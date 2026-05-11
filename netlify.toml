@@ -7,6 +7,26 @@
   status = 404
 
 [[redirects]]
+  from = "/about.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/services.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
