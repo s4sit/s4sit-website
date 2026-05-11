@@ -46,7 +46,7 @@ const FAQ = [
   },
   {
     keys: ['safe', 'secure', 'trust', 'scam', 'legit', 'real', 'verified', 'reliable'],
-    answer: "100% safe. ✅ S4SIT SOLUTION LLC is a legally registered US company (Colorado LLC). Every transaction gets a receipt. We've served 500+ agencies with zero disputes. References from ngital.com and brainyzat.com available on request."
+    answer: "100% safe. ✅ Every transaction gets a receipt. We're independently verified on Trustpilot, ScamAdviser, and Clutch. We've served 500+ clients with zero disputes. References from ngital.com and brainyzat.com available on request."
   },
   {
     keys: ['country', 'worldwide', 'global', 'international', 'outside', 'abroad', 'location', 'where'],
