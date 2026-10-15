@@ -1,8 +1,8 @@
-// Guru AI — FAQ Chatbot for S4SIT SOLUTION LLC
+// Guru AI — FAQ Chatbot for S4SIT SOLUTION
 const FAQ = [
   {
     keys: ['what', 'service', 'do', 'offer', 'provide', 's4sit'],
-    answer: "S4SIT SOLUTION LLC is a full-service digital marketing agency. We: ✅ Set up & manage ad accounts ✅ Build marketing strategies per product/service ✅ Run Facebook, Instagram, TikTok, Google & YouTube ads ✅ Generate sales for your clients ✅ Automate delivery processes ✅ Fund ad accounts globally (currency support) 🌍 ✅ Build websites, online stores, AI agents & ERP software 💻"
+    answer: "S4SIT SOLUTION is a full-service digital marketing agency. We: ✅ Set up & manage ad accounts ✅ Build marketing strategies per product/service ✅ Run Facebook, Instagram, TikTok, Google & YouTube ads ✅ Generate sales for your clients ✅ Automate delivery processes ✅ Fund ad accounts globally (currency support) 🌍 ✅ Build websites, online stores, AI agents & ERP software 💻"
   },
   {
     keys: ['website', 'web site', 'web development', 'web design', 'develop', 'wordpress', 'landing page', 'shopify', 'woocommerce', 'ecommerce', 'e-commerce', 'online store'],
@@ -85,8 +85,8 @@ const FAQ = [
     answer: "Our clients include: 🏆 Ngital (ngital.com) 🏆 BrainyZat (brainyzat.com) — plus 500+ agencies across 30+ countries running Meta, Google, YouTube, and more."
   },
   {
-    keys: ['us', 'usa', 'colorado', 'llc', 'registered', 'company', 'legal'],
-    answer: "Yes! S4SIT SOLUTION LLC is registered in Colorado, USA. US Office: 1618 Weatherby Ln, Pueblo, CO 81008. We also operate from Mirpur DOHS, Dhaka, Bangladesh for timezone-flexible support."
+    keys: ['usa', 'llc', 'registered', 'company', 'legal', 'office', 'address', 'located'],
+    answer: "S4SIT SOLUTION is based in Dhaka, Bangladesh — 3rd Floor, Ramzannessa Super Market, Dhaka 1216. We work with clients worldwide online, and every payment comes with a receipt. 🇧🇩 For business details, email support@s4sit.com."
   },
   {
     keys: ['retarget', 'retargeting', 'pixel', 'audience', 'remarketing'],
