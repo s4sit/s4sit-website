@@ -2,7 +2,19 @@
 const FAQ = [
   {
     keys: ['what', 'service', 'do', 'offer', 'provide', 's4sit'],
-    answer: "S4SIT SOLUTION LLC is a full-service digital marketing agency. We: ✅ Set up & manage ad accounts ✅ Build marketing strategies per product/service ✅ Run Facebook, Instagram, TikTok, Google & YouTube ads ✅ Generate sales for your clients ✅ Automate delivery processes ✅ Fund ad accounts globally (currency support) 🌍"
+    answer: "S4SIT SOLUTION LLC is a full-service digital marketing agency. We: ✅ Set up & manage ad accounts ✅ Build marketing strategies per product/service ✅ Run Facebook, Instagram, TikTok, Google & YouTube ads ✅ Generate sales for your clients ✅ Automate delivery processes ✅ Fund ad accounts globally (currency support) 🌍 ✅ Build websites, online stores, AI agents & ERP software 💻"
+  },
+  {
+    keys: ['website', 'web site', 'web development', 'web design', 'develop', 'wordpress', 'landing page', 'shopify', 'woocommerce', 'ecommerce', 'e-commerce', 'online store'],
+    answer: "Yes! We build websites and online stores: 🖥️ Business websites & landing pages 🧩 WordPress sites (theme setup, page builders, plugins, speed & security) 🛒 Shopify & WooCommerce stores with products, payments and shipping set up. Share your idea on WhatsApp (+880 1842-868803) and we'll send a clear scope, timeline and quote."
+  },
+  {
+    keys: ['ai agent', 'agent', 'chatbot', 'chat bot', 'ai bot', 'ai chat', 'n8n', 'auto reply', 'artificial intelligence'],
+    answer: "Yes — we build AI agents! 🤖 They answer customers on Facebook Messenger, WhatsApp and your website, take orders and log them to Google Sheets or your CRM, around the clock. Tell us your use case on WhatsApp (+880 1842-868803) and we'll suggest the best setup."
+  },
+  {
+    keys: ['erp', 'inventory', 'software', 'accounting', 'stock', 'web app', 'mobile app', 'business system'],
+    answer: "We build custom ERP & business software 🏭 — inventory, sales, purchasing and accounting, with staff logins and permissions, multi-currency support, reports and an owner's dashboard. Message us on WhatsApp (+880 1842-868803) to discuss your workflow."
   },
   {
     keys: ['strategy', 'marketing strategy', 'plan', 'planning'],
@@ -54,7 +66,7 @@ const FAQ = [
   },
   {
     keys: ['fee', 'charge', 'rate', 'cost', 'price', 'commission', 'how much'],
-    answer: "Our fees are shared transparently before every transaction — no surprises. Rates depend on payment method, amount, and currency. Message us on WhatsApp for a quick quote: wa.me/17208197366 📊"
+    answer: "Our fees are shared transparently before every engagement — no surprises. Ad funding rates depend on payment method, amount, and currency; website and software projects are quoted once we understand your scope. Message us on WhatsApp for a quick quote: wa.me/8801842868803 📊"
   },
   {
     keys: ['start', 'begin', 'how to', 'get started', 'contact', 'reach', 'first step'],
@@ -86,15 +98,15 @@ const FAQ = [
   },
   {
     keys: ['hello', 'hi', 'hey', 'salaam', 'salam', 'assalam', 'hola'],
-    answer: "Hi there! 👋 I'm Guru — S4SIT's AI assistant. I can answer questions about our ad account funding, payment methods, pricing, and more. What would you like to know?"
+    answer: "Hi there! 👋 I'm Guru — S4SIT's AI assistant. I can answer questions about our marketing and ad funding services, website & software development, payment methods, pricing, and more. What would you like to know?"
   },
   {
     keys: ['thanks', 'thank', 'great', 'perfect', 'awesome', 'good'],
-    answer: "You're welcome! 😊 If you need anything else, just ask. Ready to fund your campaigns? Message us on WhatsApp: +1 720-819-7366 or use the contact form above!"
+    answer: "You're welcome! 😊 If you need anything else, just ask. Ready to fund your campaigns or start a project? Message us on WhatsApp: +880 1842-868803 or use the contact form above!"
   }
 ];
 
-const FALLBACK = "I'm not sure about that specific question. 🤔 For the best answer, reach us directly:\n📱 WhatsApp: +1 720-819-7366\n📧 Email: support@s4sit.com\nWe reply within minutes!";
+const FALLBACK = "I'm not sure about that specific question. 🤔 For the best answer, reach us directly:\n📱 WhatsApp: +880 1842-868803\n📧 Email: support@s4sit.com\nWe reply within minutes!";
 
 function getAnswer(input) {
   const lower = input.toLowerCase().trim();
