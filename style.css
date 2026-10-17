@@ -781,3 +781,5 @@ body {
   .dev-cta-buttons { width: 100%; flex-direction: column; }
   .dev-cta-buttons .btn { width: 100%; text-align: center; }
 }
+
+.nav-linkedin:hover { background: rgba(10,102,194,0.25) !important; }
