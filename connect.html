@@ -129,9 +129,38 @@
       $('loggedOut').classList.add('hidden');
       $('loggedIn').classList.remove('hidden');
       api('/me', 'get', { fields: 'name' }).then(function (me) { $('userName').textContent = me.name; });
-      api('/me/accounts', 'get', { fields: 'id,name,access_token,picture{url}', limit: 100 })
-        .then(function (r) { renderPages(r.data || []); })
+      loadPages()
+        .then(renderPages)
         .catch(function (e) { say('Could not load your Pages: ' + e.message, true); });
+    }
+
+    // Pages from /me/accounts plus any Page the person selected in the login dialog
+    // (Pages owned by a business portfolio are listed only in the token's granted Page IDs).
+    function loadPages() {
+      var FIELDS_PAGE = 'id,name,access_token,picture{url}';
+      var token = FB.getAuthResponse() && FB.getAuthResponse().accessToken;
+      var mine = api('/me/accounts', 'get', { fields: FIELDS_PAGE, limit: 100 })
+        .then(function (r) { return r.data || []; })
+        .catch(function () { return []; });
+      var granted = api('/debug_token', 'get', { input_token: token })
+        .then(function (r) {
+          var ids = {};
+          ((r.data && r.data.granular_scopes) || []).forEach(function (g) {
+            if (g.scope === 'pages_show_list' || g.scope === 'pages_messaging') (g.target_ids || []).forEach(function (id) { ids[id] = true; });
+          });
+          return Object.keys(ids);
+        })
+        .catch(function () { return []; });
+      return Promise.all([mine, granted]).then(function (res) {
+        var list = res[0], have = {};
+        list.forEach(function (pg) { have[pg.id] = true; });
+        var missing = res[1].filter(function (id) { return !have[id]; });
+        return Promise.all(missing.map(function (id) {
+          return api('/' + id, 'get', { fields: FIELDS_PAGE }).catch(function () { return null; });
+        })).then(function (extra) {
+          return list.concat(extra.filter(function (pg) { return pg && pg.access_token; }));
+        });
+      });
     }
 
     function renderPages(pages) {
