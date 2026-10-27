@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connect your Page | S4SIT Solution</title>
+  <meta name="description" content="Connect your Facebook Page to the S4SIT Messenger order assistant.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .btn-fb { background: #1877F2; border-color: #1877F2; color: #fff; }
+    .btn-fb:hover { background: #0F5FCC; border-color: #0F5FCC; color: #fff; }
+    .howto { counter-reset: s; list-style: none; padding: 0 !important; margin: 24px 0 32px; }
+    .howto li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 14px; }
+    .howto li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--paper); border: 1px solid var(--line); display: grid; place-items: center; font-weight: 700; font-size: 15px; color: var(--ink); }
+    .panel { border: 1px solid var(--line); border-radius: 14px; padding: 20px; background: var(--white); margin-top: 24px; }
+    .who { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .page-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+    .page-row:first-of-type { border-top: 0; }
+    .page-row img { width: 48px; height: 48px; border-radius: 50%; flex: none; background: var(--paper); }
+    .page-row .meta { flex: 1 1 200px; min-width: 0; }
+    .page-row .meta strong { display: block; overflow-wrap: anywhere; }
+    .page-row .meta small { color: var(--muted); }
+    .pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--paper); color: var(--muted); }
+    .pill.on { background: #E3F6EC; color: var(--green); }
+    .page-row .btn { padding: 10px 18px; font-size: 15px; }
+    .msg { margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: var(--paper); font-size: 15px; }
+    .msg.err { background: #FDECEC; color: #9B1C1C; }
+    .hidden { display: none !important; }
+    .fine { font-size: 15px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="site-header is-scrolled">
+    <div class="wrap bar">
+      <a class="brand" href="/" aria-label="S4SIT Solution home">
+        <img src="assets/s4s-logo.png" alt="" width="74" height="39">
+        <span>S4SIT Solution<small>A brand of S4S International</small></span>
+      </a>
+      <a class="btn btn-ghost" href="/#contact" style="padding:10px 18px;font-size:15px">Contact us</a>
+    </div>
+  </header>
+  <main class="doc">
+    <div class="wrap"><div class="doc-inner">
+      <h1>Connect your Page</h1>
+      <p class="updated">Turn on the S4SIT Messenger order assistant for your Facebook Page.</p>
+
+      <p>The assistant replies to customers who message your Page, answers questions about your products in English or Bangla, and saves orders (name, phone, address and product) to your order sheet so your team can confirm and deliver them.</p>
+
+      <ol class="howto">
+        <li>Log in with the Facebook account that manages your Page.</li>
+        <li>Choose the Page you want the assistant to work on and click <strong>Connect</strong>.</li>
+        <li>Send a test message to your Page. The assistant will reply within a few seconds.</li>
+      </ol>
+
+      <div id="loggedOut">
+        <button class="btn btn-fb" id="loginBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07"/></svg>
+          Continue with Facebook
+        </button>
+        <p class="fine" style="margin-top:12px">We only ask for access to the Pages you choose. You can disconnect at any time from this page or from your Facebook settings.</p>
+      </div>
+
+      <div id="loggedIn" class="panel hidden">
+        <div class="who">
+          <span>Logged in as <strong id="userName">…</strong></span>
+          <button class="btn btn-ghost" id="logoutBtn" type="button" style="padding:8px 16px;font-size:14px">Log out</button>
+        </div>
+        <h2 style="margin-top:24px">Your Pages</h2>
+        <div id="pages"><p class="fine">Loading your Pages…</p></div>
+      </div>
+
+      <div id="status" class="msg hidden" role="status" aria-live="polite"></div>
+
+      <h2>What we access</h2>
+      <ul>
+        <li><strong>The list of Pages you manage</strong>, so you can pick one to connect.</li>
+        <li><strong>Messages sent to the connected Page</strong>, so the assistant can read and reply to them.</li>
+        <li><strong>Basic Page details</strong> (name and picture), shown here so you can see which Page is connected.</li>
+      </ul>
+      <p>We do not sell this data or use it for advertising. Read our <a href="privacy.html">privacy policy</a>. To delete your data, email <a href="mailto:support@s4sit.com">support@s4sit.com</a>.</p>
+    </div></div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>S4SIT Solution is a brand of S4S International, a sole proprietorship registered with Dhaka North City Corporation, trade licence TRAD/DNCC/144243/2022. 3rd Floor, Ramzannessa Super Market, Dhaka 1216, Bangladesh.</p>
+      <div class="legal-line">
+        <span>&copy; 2026 S4S International</span>
+        <span><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a> &nbsp; <a href="refund.html">Refunds</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Meta app settings
+    var APP_ID = '1357287382880084';
+    var CONFIG_ID = '4480300555631950'; // Facebook Login for Business > Configurations
+    var GRAPH = 'v23.0';
+    var FIELDS = 'messages,messaging_postbacks';
+
+    var $ = function (id) { return document.getElementById(id); };
+
+    function say(text, isErr) {
+      var s = $('status');
+      s.textContent = text;
+      s.classList.toggle('err', !!isErr);
+      s.classList.remove('hidden');
+    }
+
+    function api(path, method, params) {
+      return new Promise(function (resolve, reject) {
+        FB.api(path, method || 'get', params || {}, function (r) {
+          if (!r || r.error) reject(r && r.error ? r.error : { message: 'No response' });
+          else resolve(r);
+        });
+      });
+    }
+
+    function showLoggedOut() {
+      $('loggedOut').classList.remove('hidden');
+      $('loggedIn').classList.add('hidden');
+    }
+
+    function loadAll() {
+      $('loggedOut').classList.add('hidden');
+      $('loggedIn').classList.remove('hidden');
+      api('/me', 'get', { fields: 'name' }).then(function (me) { $('userName').textContent = me.name; });
+      api('/me/accounts', 'get', { fields: 'id,name,access_token,picture{url}', limit: 100 })
+        .then(function (r) { renderPages(r.data || []); })
+        .catch(function (e) { say('Could not load your Pages: ' + e.message, true); });
+    }
+
+    function renderPages(pages) {
+      var box = $('pages');
+      box.textContent = '';
+      if (!pages.length) {
+        var p = document.createElement('p');
+        p.className = 'fine';
+        p.textContent = 'No Pages found. Log in again and make sure you select at least one Page.';
+        box.appendChild(p);
+        return;
+      }
+      pages.forEach(function (pg) {
+        var row = document.createElement('div');
+        row.className = 'page-row';
+
+        var img = document.createElement('img');
+        img.alt = '';
+        if (pg.picture && pg.picture.data) img.src = pg.picture.data.url;
+
+        var meta = document.createElement('div');
+        meta.className = 'meta';
+        var name = document.createElement('strong');
+        name.textContent = pg.name;
+        var info = document.createElement('small');
+        info.textContent = 'Page ID ' + pg.id;
+        meta.appendChild(name);
+        meta.appendChild(info);
+
+        var pill = document.createElement('span');
+        pill.className = 'pill';
+        pill.textContent = 'Checking…';
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-ghost';
+        btn.disabled = true;
+        btn.textContent = '…';
+
+        row.appendChild(img);
+        row.appendChild(meta);
+        row.appendChild(pill);
+        row.appendChild(btn);
+        box.appendChild(row);
+
+        // Read basic Page details with the Page token
+        api('/' + pg.id, 'get', { fields: 'name,link,followers_count', access_token: pg.access_token })
+          .then(function (d) {
+            if (d.followers_count != null) info.textContent = 'Page ID ' + pg.id + ' · ' + d.followers_count + ' followers';
+          }).catch(function () {});
+
+        function setState(connected) {
+          pill.textContent = connected ? 'Assistant on' : 'Not connected';
+          pill.classList.toggle('on', connected);
+          btn.textContent = connected ? 'Disconnect' : 'Connect';
+          btn.className = connected ? 'btn btn-ghost' : 'btn btn-fb';
+          btn.disabled = false;
+          btn.onclick = function () { connected ? disconnect() : connect(); };
+        }
+
+        function connect() {
+          btn.disabled = true;
+          api('/' + pg.id + '/subscribed_apps', 'post', { subscribed_fields: FIELDS, access_token: pg.access_token })
+            .then(function () { setState(true); say(pg.name + ' is connected. Send a message to the Page to test the assistant.'); })
+            .catch(function (e) { btn.disabled = false; say('Could not connect ' + pg.name + ': ' + e.message, true); });
+        }
+
+        function disconnect() {
+          btn.disabled = true;
+          api('/' + pg.id + '/subscribed_apps', 'delete', { access_token: pg.access_token })
+            .then(function () { setState(false); say(pg.name + ' is disconnected. The assistant will no longer reply on this Page.'); })
+            .catch(function (e) { btn.disabled = false; say('Could not disconnect ' + pg.name + ': ' + e.message, true); });
+        }
+
+        api('/' + pg.id + '/subscribed_apps', 'get', { access_token: pg.access_token })
+          .then(function (r) {
+            var on = (r.data || []).some(function (a) { return a.id === APP_ID; });
+            setState(on);
+          })
+          .catch(function () { setState(false); });
+      });
+    }
+
+    window.fbAsyncInit = function () {
+      FB.init({ appId: APP_ID, cookie: true, xfbml: false, version: GRAPH });
+      FB.getLoginStatus(function (r) {
+        if (r.status === 'connected') loadAll(); else showLoggedOut();
+      });
+    };
+
+    $('loginBtn').addEventListener('click', function () {
+      if (!window.FB) { say('Facebook is still loading. Please try again in a moment.', true); return; }
+      FB.login(function (r) {
+        if (r.authResponse) loadAll();
+        else say('Login was cancelled.', true);
+      }, { config_id: CONFIG_ID });
+    });
+
+    $('logoutBtn').addEventListener('click', function () {
+      FB.logout(function () { showLoggedOut(); $('status').classList.add('hidden'); });
+    });
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+</body>
+</html>
