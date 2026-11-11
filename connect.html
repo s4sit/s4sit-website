@@ -32,6 +32,7 @@
     .msg.err { background: #FDECEC; color: #9B1C1C; }
     .hidden { display: none !important; }
     .fine { font-size: 15px; color: var(--muted); }
+    #testBox .field textarea { min-height: 84px; }
   </style>
 </head>
 <body>
@@ -72,6 +73,15 @@
         </div>
         <h2 style="margin-top:24px">Your Pages</h2>
         <div id="pages"><p class="fine">Loading your Pages…</p></div>
+
+        <div id="testBox" class="hidden">
+          <h2 style="margin-top:28px">Send a test message</h2>
+          <p class="fine">Send a message from this app to someone who messaged your connected Page in the last 24 hours. It is delivered in Messenger.</p>
+          <div class="field"><label for="testPage">Page</label><select id="testPage"></select></div>
+          <div class="field"><label for="testTo">Recipient</label><select id="testTo"></select></div>
+          <div class="field"><label for="testText">Message</label><textarea id="testText" maxlength="1000">Hello! This is a test message from the S4SIT order assistant.</textarea></div>
+          <button class="btn btn-fb" id="testSend" type="button">Send message</button>
+        </div>
       </div>
 
       <div id="status" class="msg hidden" role="status" aria-live="polite"></div>
@@ -79,7 +89,7 @@
       <h2>What we access</h2>
       <ul>
         <li><strong>The list of Pages you manage</strong>, so you can pick one to connect.</li>
-        <li><strong>Messages sent to the connected Page</strong>, so the assistant can read and reply to them.</li>
+        <li><strong>Messages sent to the connected Page</strong>, so the assistant can read and reply to them, and so you can send a test message from this page.</li>
         <li><strong>Basic Page details</strong> (name and picture), shown here so you can see which Page is connected.</li>
       </ul>
       <p>We do not sell this data or use it for advertising. Read our <a href="privacy.html">privacy policy</a>. To delete your data, email <a href="mailto:support@s4sit.com">support@s4sit.com</a>.</p>
@@ -163,9 +173,73 @@
       });
     }
 
+    // Connected Pages (id -> page) available in the "Send a test message" panel
+    var livePages = {};
+
+    function refreshTest() {
+      var sel = $('testPage'), keep = sel.value;
+      sel.textContent = '';
+      Object.keys(livePages).forEach(function (id) {
+        var o = document.createElement('option');
+        o.value = id;
+        o.textContent = livePages[id].name;
+        sel.appendChild(o);
+      });
+      if (livePages[keep]) sel.value = keep;
+      $('testBox').classList.toggle('hidden', !sel.options.length);
+      if (sel.options.length && sel.value !== keep) loadRecipients();
+    }
+
+    // People who recently messaged the selected Page
+    function loadRecipients() {
+      var pg = livePages[$('testPage').value], to = $('testTo');
+      to.textContent = '';
+      if (!pg) return;
+      api('/' + pg.id + '/conversations', 'get', { fields: 'participants,updated_time', platform: 'messenger', limit: 10, access_token: pg.access_token })
+        .then(function (r) {
+          if ($('testPage').value !== pg.id) return;
+          to.textContent = '';
+          (r.data || []).forEach(function (c) {
+            ((c.participants && c.participants.data) || []).forEach(function (person) {
+              if (person.id === pg.id) return;
+              var o = document.createElement('option');
+              o.value = person.id;
+              o.textContent = person.name + ' · last message ' + new Date(c.updated_time).toLocaleString('en-GB');
+              to.appendChild(o);
+            });
+          });
+          if (!to.options.length) {
+            var none = document.createElement('option');
+            none.value = '';
+            none.textContent = 'No recent conversations. Message the Page first.';
+            to.appendChild(none);
+          }
+        })
+        .catch(function (e) { say('Could not load conversations: ' + e.message, true); });
+    }
+
+    function sendTest() {
+      var pg = livePages[$('testPage').value], to = $('testTo').value, text = $('testText').value.trim();
+      if (!pg || !to) { say('Choose a Page and a recipient first.', true); return; }
+      if (!text) { say('Type a message first.', true); return; }
+      var name = $('testTo').options[$('testTo').selectedIndex].textContent.split(' · ')[0];
+      $('testSend').disabled = true;
+      api('/' + pg.id + '/messages', 'post', {
+        recipient: JSON.stringify({ id: to }),
+        messaging_type: 'RESPONSE',
+        message: JSON.stringify({ text: text }),
+        access_token: pg.access_token
+      })
+        .then(function () { say('Message sent from ' + pg.name + ' to ' + name + '. Open Messenger to see it.'); })
+        .catch(function (e) { say('Could not send the message: ' + e.message, true); })
+        .then(function () { $('testSend').disabled = false; });
+    }
+
     function renderPages(pages) {
       var box = $('pages');
       box.textContent = '';
+      livePages = {};
+      refreshTest();
       if (!pages.length) {
         var p = document.createElement('p');
         p.className = 'fine';
@@ -219,12 +293,14 @@
           btn.className = connected ? 'btn btn-ghost' : 'btn btn-fb';
           btn.disabled = false;
           btn.onclick = function () { connected ? disconnect() : connect(); };
+          if (connected) livePages[pg.id] = pg; else delete livePages[pg.id];
+          refreshTest();
         }
 
         function connect() {
           btn.disabled = true;
           api('/' + pg.id + '/subscribed_apps', 'post', { subscribed_fields: FIELDS, access_token: pg.access_token })
-            .then(function () { setState(true); say(pg.name + ' is connected. Send a message to the Page to test the assistant.'); })
+            .then(function () { setState(true); say(pg.name + ' is connected and subscribed to webhook events: ' + FIELDS.replace(',', ', ') + '. Send a message to the Page to test the assistant.'); })
             .catch(function (e) { btn.disabled = false; say('Could not connect ' + pg.name + ': ' + e.message, true); });
         }
 
@@ -258,6 +334,9 @@
         else say('Login was cancelled.', true);
       }, { config_id: CONFIG_ID });
     });
+
+    $('testPage').addEventListener('change', loadRecipients);
+    $('testSend').addEventListener('click', sendTest);
 
     $('logoutBtn').addEventListener('click', function () {
       FB.logout(function () { showLoggedOut(); $('status').classList.add('hidden'); });
