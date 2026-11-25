@@ -1,4 +1,4 @@
-/* S4SIT Solution, a brand of S4S International
+/* S4S IT, a brand of S4S International
    Palette from the S4S logo: indigo halftone, signal blue "4", leaf green swoosh. */
 
 :root {
@@ -9,6 +9,7 @@
   --sky: #5FB0F0;
   --green: #007A43;
   --green-bright: #00A651;
+  --orange: #F26A1B;
   --dot: #4B4F86;
   --paper: #F4F6FA;
   --white: #FFFFFF;
@@ -101,6 +102,10 @@ p { margin: 0 0 1em; }
 .hero .lede { color: var(--night-text); margin-bottom: 30px; max-width: 46ch; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .owner-line { margin-top: 26px; font-size: 14px; color: #9FA6E0; }
+
+/* Brand slogan (orange, as on the signboard, card and pad) */
+.slogan { margin: 0 0 14px; font-weight: 800; font-size: 18px; line-height: 1.2; color: var(--orange); font-variation-settings: "wdth" 112; }
+.hero .slogan { font-size: clamp(17px, 1.6vw, 21px); margin-bottom: 18px; }
 
 .platforms { position: relative; z-index: 1; margin-top: clamp(48px, 7vw, 88px); border-top: 1px solid rgba(201,204,235,.18); padding-block: 22px; }
 .platforms ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 34px; align-items: center; }
@@ -320,6 +325,7 @@ p { margin: 0 0 1em; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 32px 56px; }
 .site-footer img { width: 96px; margin-bottom: 16px; }
 .site-footer p { font-size: 15px; color: var(--muted); max-width: 52ch; }
+.site-footer .slogan { font-size: 20px; color: var(--orange); max-width: none; margin-bottom: 12px; }
 .site-footer h3 { font-size: 15px; margin-bottom: 12px; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer li { margin-bottom: 8px; font-size: 15px; }
